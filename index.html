@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para alguém especial...</title>
+    <title>A Definição do Belo</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -21,12 +21,12 @@
 
         #container-geral {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            max-width: 450px;
+            max-width: 500px;
             width: 85%;
-            min-height: 400px;
+            min-height: 480px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -38,41 +38,71 @@
         h1 { color: #d63384; font-size: 20px; line-height: 1.4; margin-bottom: 25px; }
         .titulo-capa { color: #8a2e5d; font-size: 24px; font-weight: bold; font-style: italic; animation: fadeIn 2s; }
         
-        .poesia {
+        .texto-filosofico {
+            line-height: 1.8;
+            font-size: 17px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+            text-align: center;
             font-style: italic;
-            line-height: 1.6;
-            font-size: 16px;
-            color: #444;
-            animation: fadeIn 1s ease-in-out;
         }
 
-        .autor-citacao {
+        .autor-tag {
             display: block;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #995c7a;
+            margin-top: 15px;
+            font-size: 11px;
+            color: #95a5a6;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
         .final-msg {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
             color: #d63384;
-            margin-top: 20px;
+            margin-top: 25px;
+            line-height: 1.4;
             animation: apareceFinal 1.5s ease-out;
         }
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            min-height: 60px;
+        .seta-proximo {
+            margin-top: 25px;
+            cursor: pointer;
+            font-size: 35px;
+            color: #ff69b4;
+            background: none;
+            border: none;
+            animation: bounce 2s infinite ease-in-out;
         }
 
+        #container-musico {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        #imagem-violao { width: 110px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .frase-musico { font-size: 12px; color: #888; font-style: italic; text-align: right; max-width: 100px; }
+
+        .final-img {
+            max-width: 240px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes apareceFinal { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .escondido { display: none !important; }
+        
         button {
             padding: 12px 25px;
             font-size: 15px;
@@ -85,55 +115,6 @@
 
         #btnSim { background-color: #ff69b4; color: white; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4); }
         #btnNao { background-color: #f0f0f0; color: #888; position: relative; }
-
-        .seta-proximo {
-            margin-top: 25px;
-            cursor: pointer;
-            font-size: 30px;
-            color: #ff69b4;
-            background: none;
-            border: none;
-            animation: bounce 2s infinite ease-in-out;
-        }
-
-        /* Estilo do Musico (Lagarto) no canto */
-        #container-musico {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 100;
-        }
-
-        .frase-musico {
-            font-size: 12px;
-            color: #888;
-            font-style: italic;
-            text-align: right;
-            max-width: 100px;
-        }
-
-        #imagem-violao {
-            width: 120px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Imagem Final (Linda) */
-        .final-img {
-            max-width: 200px;
-            border-radius: 20px;
-            margin-top: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes apareceFinal { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-        .escondido { display: none !important; }
     </style>
 </head>
 <body>
@@ -144,9 +125,9 @@
 
     <div id="container-geral">
         <div id="etapa0">
-            <h1>Você aceita o fato de que é um anjo que ficou na Terra? 😇</h1>
-            <div class="buttons">
-                <button id="btnSim" onclick="proximaEtapa(1)">Sim, aceito! 😊</button>
+            <h1>Você aceita o fato de que é o anjo mais lindo que já pousou na Terra? 😇❤️</h1>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                <button id="btnSim" onclick="começarJornada()">Sim, aceito! 😊</button>
                 <button id="btnNao" onmouseover="foge(this)" ontouchstart="foge(this)">Não... 🤔</button>
             </div>
         </div>
@@ -157,50 +138,51 @@
         </div>
 
         <div id="etapa2" class="escondido">
-            <p class="poesia">
-                "Dizem que as almas, antes de virem ao mundo, habitavam um lugar de luz e perfeição. 
-                E quando meus olhos te encontram, entendo o que Platão tentou dizer: 
-                você não é apenas um rosto, você é a lembrança viva de que o céu, 
-                por um instante, decidiu descer."
-                <span class="autor-citacao">— A Visão de Platão</span>
-            </p>
+            <p class="texto-filosofico">"A alma, ao contemplar o brilho nos olhos, recorda-se da luz que outrora conheceu. É um esplendor que emana da verdade e conduz o olhar para o divino."</p>
+            <span class="autor-tag">Platão</span>
             <button class="seta-proximo" onclick="proximaEtapa(3)">➔</button>
         </div>
 
         <div id="etapa3" class="escondido">
-            <p class="poesia">
-                "Não há lógica que explique o encanto, nem conceito que prenda o que sinto ao te ver. 
-                Tua beleza é uma harmonia livre, um presente que não pede tradução. 
-                Você não precisa de porquês para ser incrível, basta existir para o mundo fazer sentido."
-                <span class="autor-citacao">— A Visão de Immanuel Kant</span>
-            </p>
+            <p class="texto-filosofico">"As formas principais da beleza são a ordem, a simetria e a determinação. É a harmonia absoluta de cada parte que compõe a integridade de um todo perfeito."</p>
+            <span class="autor-tag">Aristóteles</span>
             <button class="seta-proximo" onclick="proximaEtapa(4)">➔</button>
         </div>
 
         <div id="etapa4" class="escondido">
-            <p class="poesia">
-                "Olhar para você é encontrar a ordem no caos. 
-                Se a beleza é o esplendor da verdade, a verdade é que o mundo se ilumina 
-                toda vez que você decide aparecer. Uma harmonia que os olhos captam, 
-                mas que só o coração consegue entender."
-                <span class="autor-citacao">— A Visão de Santo Agostinho</span>
-            </p>
+            <p class="texto-filosofico">"Pergunta à luz que emana do ser... e ela te responderá: 'Vê, eu sou o reflexo de algo maior'. É um hino vivo de louvor que ilumina tudo ao redor."</p>
+            <span class="autor-tag">Santo Agostinho</span>
             <button class="seta-proximo" onclick="proximaEtapa(5)">➔</button>
         </div>
 
         <div id="etapa5" class="escondido">
-            <p class="poesia">
-                "Alguns até tentaram achar significado na escrita...<br>
-                É porque eles não te viram."
-            </p>
-            <p class="final-msg">Você simplesmente não é desse mundo. ❤️</p>
-            <img class="final-img" src="linda.jpg" alt="Beleza real">
+            <p class="texto-filosofico">"É um prazer puro que suspende a razão e encanta a alma por sua simples existência. Agrada universalmente, sem o auxílio de um conceito ou de uma lógica."</p>
+            <span class="autor-tag">Immanuel Kant</span>
+            <button class="seta-proximo" onclick="proximaEtapa(6)">➔</button>
+        </div>
+
+        <div id="etapa6" class="escondido">
+            <p class="texto-filosofico">"A beleza não é senão uma promessa de felicidade. Ela é o sinal visível de que a alegria é possível e de que o mundo alcançou sua forma ideal."</p>
+            <span class="autor-tag">Stendhal</span>
+            <button class="seta-proximo" onclick="proximaEtapa(7)">➔</button>
+        </div>
+
+        <div id="etapa7" class="escondido">
+            <p class="texto-filosofico">"Eu te louvo porque me fizeste de modo especial e admirável. Tuas obras são maravilhosas, digo isso com convicção."</p>
+            <span class="autor-tag">Salmos 139:14</span>
+            <button class="seta-proximo" onclick="proximaEtapa(8)">➔</button>
+        </div>
+
+        <div id="etapa8" class="escondido">
+            <p class="texto-filosofico" style="font-size: 16px;">Muitos tentaram definir o que é o belo, mas nenhum texto chegou perto do que meus olhos veem agora.</p>
+            <p class="final-msg">A obra de Deus é perfeita em cada detalhe, mas em você, Ele se superou! ❤️</p>
+            <img class="final-img" src="linda.jpg">
         </div>
     </div>
 
     <div id="container-musico" class="escondido">
         <p class="frase-musico">Não ligue pra mim, sou só o músico. 🦎🎶</p>
-        <img id="imagem-violao" src="musico.png">
+        <img id="imagem-violao" src="musico.webp">
     </div>
 
     <script>
@@ -208,32 +190,26 @@
             botao.style.position = "fixed";
             const maxX = window.innerWidth - botao.offsetWidth - 20;
             const maxY = window.innerHeight - botao.offsetHeight - 20;
-            let novaX = Math.max(20, Math.random() * maxX);
-            let novaY = Math.max(20, Math.random() * maxY);
+            botao.style.left = Math.max(20, Math.random() * maxX) + "px";
+            botao.style.top = Math.max(20, Math.random() * maxY) + "px";
+        }
 
-            const rect = document.getElementById('container-geral').getBoundingClientRect();
-            if (novaX > rect.left - 50 && novaX < rect.right + 50 && novaY > rect.top - 50 && novaY < rect.bottom + 50) {
-                novaX = 20;
-                novaY = 20;
-            }
-
-            botao.style.left = novaX + "px";
-            botao.style.top = novaY + "px";
+        function começarJornada() {
+            // Remove o botão NÃO da tela para sempre
+            const botaoNao = document.getElementById("btnNao");
+            if(botaoNao) botaoNao.remove();
+            
+            // Inicia a música e troca de etapa
+            document.getElementById("musicaFundo").play().catch(e => console.log(e));
+            document.getElementById("container-musico").classList.remove("escondido");
+            proximaEtapa(1);
         }
 
         function proximaEtapa(num) {
-            if (num === 1) {
-                // Toca a música e mostra o músico EXATAMENTE na capa
-                document.getElementById("musicaFundo").play().catch(e => console.log("Erro som:", e));
-                document.getElementById("btnNao").classList.add("escondido");
-                document.getElementById("container-musico").classList.remove("escondido");
-            }
-
-            for (let i = 0; i <= 5; i++) {
+            for (let i = 0; i <= 8; i++) {
                 let el = document.getElementById("etapa" + i);
                 if (el) el.classList.add("escondido");
             }
-
             document.getElementById("etapa" + num).classList.remove("escondido");
         }
     </script>
